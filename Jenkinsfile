@@ -12,14 +12,18 @@ pipeline {
             steps {
                 echo 'Building.......'
                 sh 'cd webapp && npm install && npm run build'
-                sh 'ls'
             }
         }
-        stage('Releasing') {
+        stage('Release') {
             steps {
-                echo 'Releasing.....'
-            }
-        }
+                script {
+                    echo 'Releasing.....'                
+                    def packageJson = readJSON file: 'webapp/package.json'
+                    def packageVersion = packageJSON.version
+                    echo "${packageJSONVersion}"
+         }
+     }
+}
         stage('Deploy') {
             steps {
                 echo 'Deploying.....'
