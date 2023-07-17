@@ -14,7 +14,7 @@ pipeline {
                 sh 'cd webapp && npm install && npm run build'
             }
         }
-        stage('Release') {
+        stage('Release...') {
             steps {
        		    script {
 		            echo 'Releasing.....'                
