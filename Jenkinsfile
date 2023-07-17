@@ -17,11 +17,11 @@ pipeline {
         stage('Release') {
             steps {
        		    script {
-		         echo 'Releasing.....'                
-                def packageJson = readJSON file: 'webapp/package.json'
-                def packageJSONVersion = packageJSON.version
-                echo "${packageJSONVersion}"
-           	 }
+		            echo 'Releasing.....'                
+                    def packageJson = readJSON file: 'webapp/package.json'
+                    def packageJSONVersion = packageJSON.version
+                    echo "${packageJSONVersion}"
+           	    }
             }
         }
         stage('Deploy') {
