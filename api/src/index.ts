@@ -9,7 +9,7 @@ const PORT: number = parseInt(getConfig("PORT") as string, 10);
 
 async function main() {
   // Start the server
-  app.listen(PORT, () => {
+  app.listen(PORT, "0.0.0.0", () => {
     console.log(`🚀 App started in ${getConfig("MODE")} mode on port ${PORT}.`);
   });
 }
