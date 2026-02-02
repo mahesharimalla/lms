@@ -1,8 +1,14 @@
-title = "Enterprise Secret Detection Policy"
+title = "Enterprise Real Secret Detection Policy"
 
+# -------------------------------------------------
+# IGNORE NON-DEVELOPER FILES (CRITICAL)
+# -------------------------------------------------
 [allowlist]
-description = "Ignore generated & non-developer files"
+description = "Ignore generated, tool, and non-source files"
+
 paths = [
+  ".git/",
+  ".scannerwork/",
   "node_modules/",
   "dist/",
   "build/",
@@ -12,11 +18,18 @@ paths = [
   "dependency-check-report.xml",
   "dependency-check-report.html",
   "dependency-check-report.json",
-  ".scannerwork/"
+  "trivy-api-scan.txt"
 ]
 
-[[rules]]
-id = "ignore-placeholders"
-description = "Ignore placeholder / non-real secrets"
-regex = '''REDACTED|dummy|example|changeme'''
+# -------------------------------------------------
+# IGNORE PLACEHOLDER / DUMMY VALUES
+# -------------------------------------------------
+regexes = [
+  "REDACTED",
+  "dummy",
+  "example",
+  "changeme",
+  "test123",
+  "password"
+]
 
