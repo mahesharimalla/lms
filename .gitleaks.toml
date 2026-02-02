@@ -1,0 +1,18 @@
+title = "Enterprise Secret Detection Policy"
+
+[allowlist]
+description = "Ignore generated artifacts"
+paths = [
+  "node_modules/",
+  "dist/",
+  "build/",
+  "target/",
+  "coverage/",
+  "security-reports/",
+  "dependency-check-report.*",
+  ".scannerwork/"
+]
+
+[[rules]]
+description = "Ignore placeholders"
+regex = '''REDACTED|dummy|example|changeme'''
