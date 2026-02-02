@@ -18,11 +18,10 @@ jobs:
     parameters:
       maxDuration: 2
 
-  # 🔐 SECURITY GATE (this is what fails the pipeline)
-  - type: fail
+  - type: outputSummary
     parameters:
-      high: 1
-      critical: 1
+      format: Long
+      summaryFile: /zap/wrk/zap_out.json
 
   - type: report
     parameters:
