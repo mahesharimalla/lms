@@ -1,7 +1,7 @@
 title = "Enterprise Secret Detection Policy"
 
 [allowlist]
-description = "Ignore generated and non-developer files only"
+description = "Ignore generated and non-developer files"
 
 paths = [
   "^\\.git/",
