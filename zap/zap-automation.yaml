@@ -2,7 +2,7 @@ env:
   contexts:
     - name: lms-web
       urls:
-        - http://lms-webapp:3001
+        - http://192.168.11.18:3001
 
   parameters:
     failOnError: false
@@ -11,7 +11,7 @@ env:
 jobs:
   - type: spider
     parameters:
-      url: http://lms-webapp:3001
+      url: http://192.168.11.18:3001
       maxDuration: 5
 
   - type: passiveScan-wait
