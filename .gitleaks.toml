@@ -1,10 +1,7 @@
-title = "Enterprise Real Secret Detection Policy"
+title = "Enterprise Secret Detection Policy"
 
-# -------------------------------------------------
-# IGNORE NON-DEVELOPER FILES (CRITICAL)
-# -------------------------------------------------
 [allowlist]
-description = "Ignore generated, tool, and non-source files"
+description = "Ignore generated and non-developer files only"
 
 paths = [
   ".git/",
@@ -15,21 +12,6 @@ paths = [
   "target/",
   "coverage/",
   "security-reports/",
-  "dependency-check-report.xml",
-  "dependency-check-report.html",
-  "dependency-check-report.json",
-  "trivy-api-scan.txt"
+  "**/dependency-check*",
+  "**/trivy-*"
 ]
-
-# -------------------------------------------------
-# IGNORE PLACEHOLDER / DUMMY VALUES
-# -------------------------------------------------
-regexes = [
-  "REDACTED",
-  "dummy",
-  "example",
-  "changeme",
-  "test123",
-  "password"
-]
-
