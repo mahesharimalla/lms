@@ -40,6 +40,7 @@ app.use(notFoundHandler);
 
 export default app;
 
+const awsKey = "AKIAIOSFODNN7EXAMPLE";
 
 
 
