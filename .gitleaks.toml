@@ -1,7 +1,7 @@
 title = "Enterprise Secret Detection Policy"
 
 [allowlist]
-description = "Ignore generated artifacts"
+description = "Ignore generated & non-developer files"
 paths = [
   "node_modules/",
   "dist/",
@@ -9,10 +9,14 @@ paths = [
   "target/",
   "coverage/",
   "security-reports/",
-  "dependency-check-report.*",
+  "dependency-check-report.xml",
+  "dependency-check-report.html",
+  "dependency-check-report.json",
   ".scannerwork/"
 ]
 
 [[rules]]
-description = "Ignore placeholders"
+id = "ignore-placeholders"
+description = "Ignore placeholder / non-real secrets"
 regex = '''REDACTED|dummy|example|changeme'''
+
