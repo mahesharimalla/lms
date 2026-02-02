@@ -4,14 +4,14 @@ title = "Enterprise Secret Detection Policy"
 description = "Ignore generated and non-developer files only"
 
 paths = [
-  ".git/",
-  ".scannerwork/",
-  "node_modules/",
-  "dist/",
-  "build/",
-  "target/",
-  "coverage/",
-  "security-reports/",
-  "**/dependency-check*",
-  "**/trivy-*"
+  "^\\.git/",
+  "^\\.scannerwork/",
+  "^node_modules/",
+  "^dist/",
+  "^build/",
+  "^target/",
+  "^coverage/",
+  "^security-reports/",
+  "dependency-check.*",
+  "trivy-.*"
 ]
