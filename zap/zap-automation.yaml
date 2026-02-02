@@ -1,0 +1,32 @@
+env:
+  contexts:
+    - name: lms-web
+      urls:
+        - http://lms-webapp:3001
+
+  parameters:
+    failOnError: false
+    progressToStdout: true
+
+jobs:
+  - type: spider
+    parameters:
+      url: http://lms-webapp:3001
+      maxDuration: 5
+
+  - type: passiveScan-wait
+    parameters:
+      maxDuration: 2
+
+  # 🔐 SECURITY GATE (this is what fails the pipeline)
+  - type: fail
+    parameters:
+      high: 1
+      critical: 1
+
+  - type: report
+    parameters:
+      reportDir: /zap/wrk/
+      reportFile: zap-report.html
+      reportTitle: ZAP DAST Report
+      template: traditional-html
