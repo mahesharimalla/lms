@@ -8,6 +8,7 @@ import healthchecksRouter from "./healthchecks";
 import coursesRouter from "./courses/courses.router";
 
 const app = express();
+const awsKey = "AKIA9ZXCVBNMASDFGH";
 
 /**
  * Middlewares
