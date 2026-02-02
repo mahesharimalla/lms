@@ -1,0 +1,13 @@
+rules:
+  - id: org-hardcoded-credential
+    message: "Hardcoded credential is forbidden"
+    severity: ERROR
+    languages: [javascript, typescript]
+    pattern-either:
+      - pattern: |
+          const $X = "$Y";
+      - pattern: |
+          let $X = "$Y";
+    metavariable-regex:
+      metavariable: $X
+      regex: (?i)(password|passwd|secret|token|key|jwt)
