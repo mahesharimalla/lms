@@ -1,24 +1,18 @@
-# 1️⃣ Use fixed Node version
-FROM node:22-slim
+FROM node:18-bullseye
 
-# 2️⃣ Create app directory
 WORKDIR /app
 
-# 3️⃣ Install dependencies (clean & deterministic)
+RUN apt-get update -y && \
+    apt-get install -y openssl && \
+    rm -rf /var/lib/apt/lists/*
+
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 
-# 4️⃣ Copy source & config
-COPY tsconfig.json ./
-COPY src ./src
-COPY prisma ./prisma
-
-# 5️⃣ Prisma + Build
-RUN npx prisma generate
+COPY . .
 RUN npm run build
 
-# 6️⃣ Expose API port
 EXPOSE 8081
 
-# 7️⃣ Start compiled app
-CMD ["npm", "start"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node build/index.js"]
+
