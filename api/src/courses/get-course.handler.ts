@@ -6,10 +6,8 @@ import { Prisma } from "@prisma/client";
 export const getCourseHandler: RequestHandler = async (req, res, next) => {
   try {
     const courseId = IdSchema.parse(req.params.courseId);
-    let data = null;
 
-    data = await getCourseData(courseId);
-
+    const data = await getCourseData(courseId);
     return res.json(data);
   } catch (error) {
     next(error);
@@ -17,11 +15,11 @@ export const getCourseHandler: RequestHandler = async (req, res, next) => {
 };
 
 export const getCourseData = async (courseId: number) => {
-  const where: Prisma.CourseWhereInput = {
+  const where: Prisma.CourseWhereUniqueInput = {
     id: courseId,
   };
 
-  const data = await db.course.findFirst({
+  const data = await db.course.findUnique({
     where,
     select: {
       id: true,
