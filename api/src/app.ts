@@ -33,7 +33,8 @@ app.use(helmet({
 app.use(express.json());
 
 // Routers
-app.use("/api", healthchecksRouter);
+//app.use("/api", healthchecksRouter);
+app.use("/health", healthchecksRouter);
 app.use("/api/courses", coursesRouter);
 
 // Error and 404
