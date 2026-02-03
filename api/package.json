@@ -19,7 +19,7 @@
   "author": "ramesh-km@outlook.com",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.5.0",
+    "@prisma/client": "^5.10.0",
     "axios": "^1.1.2",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
@@ -29,7 +29,7 @@
     "http-errors": "^2.0.0",
     "morgan": "^1.10.0",
     "npm": "^8.19.2",
-    "prisma": "^4.5.0",
+    "prisma": "^5.10.0",
     "zod": "^3.19.1"
   },
   "devDependencies": {
