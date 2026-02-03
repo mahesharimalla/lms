@@ -1,5 +1,5 @@
 # 1️⃣ Use fixed Node version
-FROM node:18-alpine
+FROM node:18-slim
 
 # 2️⃣ Create app directory
 WORKDIR /app
