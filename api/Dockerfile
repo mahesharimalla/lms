@@ -12,15 +12,13 @@ RUN npm install
 
 COPY . .
 
-# Generate Prisma client at build time
+# Generate Prisma client
 RUN npx prisma generate
 
-# Build TypeScript at build time
+# Build TypeScript
 RUN npm run build
 
 EXPOSE 8081
 
-# ✅ START APP ONLY
+# ONLY start the app
 CMD ["node", "build/index.js"]
-
-
