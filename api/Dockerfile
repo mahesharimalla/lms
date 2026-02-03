@@ -1,5 +1,5 @@
 # 1️⃣ Use fixed Node version
-FROM FROM node:22-slim
+FROM node:22-slim
 
 # 2️⃣ Create app directory
 WORKDIR /app
