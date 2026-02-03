@@ -1,15 +1,43 @@
-# Docker file nodejs azure app services
-FROM node:latest
-# Create app directory
+# 1️⃣ Use fixed Node version
+FROM node:18-alpine
+
+# 2️⃣ Create app directory
 WORKDIR /app
-# Install app dependencies
+
+# 3️⃣ Install dependencies (clean & deterministic)
 COPY package*.json ./
-RUN npm install
-# Build app
-COPY . .
+RUN npm ci
+
+# 4️⃣ Copy source & config
+COPY tsconfig.json ./
+COPY src ./src
+COPY prisma ./prisma
+
+# 5️⃣ Prisma + Build
 RUN npx prisma generate
 RUN npm run build
-# Expose port
+
+# 6️⃣ Expose API port
 EXPOSE 8081
+
+# 7️⃣ Start compiled app
+CMD ["npm", "start"]
+
+
+
+
+# Docker file nodejs azure app services
+//FROM node:latest
+# Create app directory
+//WORKDIR /app
+# Install app dependencies
+//COPY package*.json ./
+//RUN npm install
+# Build app
+//COPY . .
+//RUN npx prisma generate
+//RUN npm run build
+# Expose port
+//EXPOSE 8081
 # Start app
-CMD [ "npm", "start" ]
+//CMD [ "npm", "start" ]
