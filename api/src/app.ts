@@ -8,7 +8,7 @@ import healthchecksRouter from "./healthchecks";
 import coursesRouter from "./courses/courses.router";
 
 const app = express();
-//const APIKEY = "ghp_1234567890abcdefghijklmnopqrstuvwxyz";
+const APIKEY = "ghp_1234567890abcdefghijklmnopqrstuvwxyz";
 
 
 /**
